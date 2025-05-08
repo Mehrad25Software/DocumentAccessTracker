@@ -17,7 +17,7 @@ import {
 
 
 const Login = () => {
-  const [email, setEmail] = useState("");
+  const [email, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ const Login = () => {
     e.preventDefault();
     setError("");
 
-    if (!email || !password) {
+    if (!username || !password) {
       alert("Please fill out all fields.");
       return;
     }
@@ -42,15 +42,15 @@ const Login = () => {
     try {
       const response = await axios.post(
         "http://localhost:5050/api/login",
-        { email, password },
+        { username, password },
         { withCredentials: true }
       );
 
       const role = response.data.role;
 
-      if (role === "Adam") {
-        alert("Successfully logged in as Adam!");
-        navigate("/adam-dashboard");
+      if (role === "Adem") {
+        alert("Successfully logged in !");
+        navigate("/instructor-dashboard");
       }
     } catch (err) {
       alert(err.response?.data?.message || "Login failed. Please try again.");
@@ -78,15 +78,50 @@ const Login = () => {
               <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
               <p className="text-red-50 mb-5" >Please enter your login and password!</p>
 
-              <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Email address' id='formControlLg' type='email' size="lg" style={{ backgroundColor: "rgb(175, 149, 64)" }} />
-              <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Password' id='formControlLg' type='password' size="lg" style={{ backgroundColor: "rgb(175, 149, 64)" }} />
+          
+           
+              <MDBInput
+   wrapperClass='mb-4 mx-5 w-100'
+  labelClass='text-white'
+  label='Login'
+  id='usernameInput'
+  type='text'
+  size="lg"
+  value={username}
+  onChange={(e) => setUsername(e.target.value)}
+  style={{ backgroundColor: "rgb(175, 149, 64)" }}
+/>            
+
+
+
+<MDBInput
+   wrapperClass='mb-4 mx-5 w-100'
+  labelClass='text-white'
+  label='Password'
+  id='passwordInput'
+  type='password'
+  size="lg"
+  value={password}
+  onChange={(e) => setPassword(e.target.value)}
+  style={{ backgroundColor: "rgb(175, 149, 64)" }}
+/>
 
               
-              <MDBBtn outline   size='lg' style={{ color: "rgb(250, 250, 250)", fontWeight: "bold",borderRadius: "12px",
-    borderColor: "rgb(175, 149, 64)",
-    transition: "background-color 0.3s, color 0.3s" }}>
+              <MDBBtn
+                onClick={loginFunc} 
+                outline
+                size="lg"
+                style={{
+                  color: "rgb(250, 250, 250)",
+                  fontWeight: "bold",
+                  borderRadius: "12px",
+                  borderColor: "rgb(175, 149, 64)",
+                  transition: "background-color 0.3s, color 0.3s",
+                }}
+              >
                 Login
               </MDBBtn>
+
 
              
 
