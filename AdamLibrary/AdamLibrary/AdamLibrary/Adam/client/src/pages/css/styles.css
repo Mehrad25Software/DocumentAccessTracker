@@ -1,0 +1,49 @@
+
+.body{
+    
+    padding-bottom: 50px;
+    min-height: 100vh;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content:  flex-start;
+    background-color: rgb(175, 149, 64);
+    
+}
+
+.home{
+font-family: Georgia,serif;
+}
+
+h1.home{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    --animate-duration:2.5s;
+    color: rgb(255, 254, 252);
+    font: bold;
+    margin-top: 30px;
+}
+
+footer {
+  background-color: #964B00;
+  color: aliceblue;
+  text-align: center;
+  margin-top: auto;
+}
+
+.row{
+    padding-top: 40px;
+  
+}
+.card-text
+{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: black;
+  
+}
+.footer-copyright, .text-center, .py-3{
+    font-size: larger;
+    color: aliceblue;
+
+}
+
